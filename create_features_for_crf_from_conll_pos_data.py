@@ -18,9 +18,10 @@ def find_sentences_in_text(lines):
         else:
             if temp_line:
                 sentences.append('\n'.join(temp_line))
-            tempLine = []
+            temp_line = []
     if temp_line:
         sentences.append('\n'.join(temp_line))
+        temp_line = []
     print(len(sentences))
     return sentences
 
@@ -41,7 +42,6 @@ def find_features_from_sentences(sentences):
     features = ''
     for sentence in sentences:
         sentence_features = ''
-        # print(sentence)
         for line in sentence.split('\n'):
             if line:
                 token = line.split('\t')[0]
